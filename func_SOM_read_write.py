@@ -5,7 +5,7 @@ Created on Tue Mar  3 17:03:48 2020
 @author: Alex Razim
 """
 import minisom
-from ndarr_read_write import writeWeights,readWeights
+from func_ndarr_read_write import writeWeights,readWeights
 
 def createSOM(data, epochs, height, width, num_features, sigma, learning_rate, 
                     neighborhood_function, random_seed=10, saveWeightsName=None):

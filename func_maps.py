@@ -4,7 +4,7 @@ Created on Tue Mar  3 17:08:36 2020
 
 @author: Alex Razim
 """
-from ndarray_read_write import readArray
+from func_ndarr_read_write import readArray
 from numpy import zeros,mean,std,savetxt
 from ast import literal_eval
 import os
