@@ -64,10 +64,13 @@ def statByBins(df,binCol,residCols,bins=12):
             statTab=allStatsAddRec(statTab,case=key,data=binned,residCols=residCols,addCols={'binEdge':key})
     return statTab
 
-def printStat(stat,fprecision=3,colsAsInt=[('General','Num objects')]):
+def printStat(stat,fprecision=3,colsAsInt=[('General','Num objects')],hideIndex=False):
     formatter={k: '{:.'+str(fprecision)+'f}' for k in stat.columns}
     for k in colsAsInt:
         formatter[k]='{:.0f}' 
-    stat=stat.style.format(formatter).hide_index().set_table_styles([dict(selector='th', props=[('text-align', 'left')])])
+    if hideIndex==True:
+        stat=stat.style.format(formatter).hide_index()
+    else:
+        stat=stat.style.format(formatter).set_table_styles([dict(selector='th', props=[('text-align', 'left')])])
     return stat
 
