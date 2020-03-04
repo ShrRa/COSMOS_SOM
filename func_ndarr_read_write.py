@@ -33,7 +33,7 @@ def writeWeights(nDarr,nameOfFile):
             # The formatting string indicates that I'm writing out
             # the values in left-justified columns 13 characters in width
             # with 8 decimal places.  
-            savetxt(outfile, data_slice, fmt='%-13.8f')
+            savetxt(outfile, data_slice, fmt='%-17.12f')
     return
             
 def readWeights(nameOfFile):
