@@ -36,10 +36,11 @@ def addCellAddress(som, data, magsScaled, idCol,cellIDPrefix):
     return data
 
 def calcOutlCoeff(data,stdMap,meanMap,filterCol,cellID,prefix=''):
-    coeffs=[]
-    for d in data.iterrows():
-        c=(meanMap[d[cellID]]-d[filterCol])/stdMap[d[cellID]]
-        coeffs.append(c)
+    getMean=lambda i: meanMap[i]
+    means=list(map(getMean,data[cellID]))
+    getStd=lambda i: stdMap[i]
+    stds=list(map(getStd,data[cellID]))
+    coeffs=(means-data[filterCol])/stds
     data[prefix+filterCol+'_outlCoeff']=coeffs
     return data
 
